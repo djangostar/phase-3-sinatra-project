@@ -5,6 +5,10 @@ class GamesController < ApplicationController
     end
 
     post '/games' do
-        Game.create(title: params[:title], genre: params[:genre], review: params[:review], year_relased: params[:year_relased], currently_playing: params[:currently_playing], platform_id: params[:platform_id]).to_json
+        Game.create(title: params[:title], genre: params[:genre], review: params[:review], year_relased: params[:year_relased], currently_playing: params[:currently_playing], platform_id: params[:platform_id]).to_json({include: :platform})
+    end
+
+    patch '/games/id' do
+        Game.update(title: params[:title], genre: params[:genre], review: params[:review], year_relased: params[:year_relased], currently_playing: params[:currently_playing], platform_id: params[:platform_id]).to_json({include: :platform})
     end
 end

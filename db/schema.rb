@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2022_07_30_185021) do
     t.string "title"
     t.string "genre"
     t.text "review"
-    t.integer "year_relased"
+    t.string "year_released"
     t.boolean "currently_playing"
     t.integer "platform_id"
     t.datetime "created_at", precision: 6, null: false
