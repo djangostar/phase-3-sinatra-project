@@ -14,4 +14,10 @@ class GamesController < ApplicationController
         game = Game.find(params[:id])
         game.update(title: params[:title], genre: params[:genre], review: params[:review], year_released: params[:year_released], currently_playing: params[:currently_playing], platform_id: params[:platform_id]).to_json({include: :platform})
     end
+
+    delete '/games/:id' do
+        game = Game.find(params[:id])
+        game.destroy
+        game.to_json
+    end
 end
